@@ -45,8 +45,13 @@ func main() {
 
 }
 
+// Reveals letters in obscuredWord if the guess is correct
 func revealLetters(word, obscuredWord string, guess string) string {
 	runeSlice := []rune(obscuredWord)
+	if guess == word {
+		return word
+	}
+
 	for i, letter := range word {
 		if string(letter) == guess {
 			runeSlice[i] = letter
