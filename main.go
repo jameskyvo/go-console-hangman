@@ -22,7 +22,18 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	fmt.Println(removeNonAlphabetic(string(body)))
+	word := removeNonAlphabetic(string(body))
+	obscuredWord := obscureWord(word)
+
+	fmt.Printf("Word: %s. Obscured: %s\n", word, obscuredWord)
+}
+
+func obscureWord(word string) string {
+	obscuredWord := ""
+	for range word {
+		obscuredWord += "_"
+	}
+	return obscuredWord
 }
 
 func removeNonAlphabetic(word string) string {
